@@ -1,20 +1,34 @@
 <?php
+require "../db.php";
+$db->query("DROP TABLE IF EXISTS users");
+$db->query("DROP TABLE IF EXISTS posts");
 
-include "db.php";
+$usersTable = "CREATE TABLE  users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL
+)";
 
-$stmt = $db->prepare("CREATE TABLE IF NOT EXISTS posts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(64) DEFAULT NULL,
-    text TEXT DEFAULT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)");
+$postsTable = "CREATE TABLE posts(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  text VARCHAR(255) NOT NULL,
+  user_id INT,
+  status ENUM('published', 'drafted') DEFAULT 'drafted',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+)";
 
-$stmt->execute();
+$postsForeignKey = "ALTER TABLE posts ADD FOREIGN KEY (user_id) REFERENCES users (id)";
 
-// Added updated_at column
+$usersStmt = $db->prepare($usersTable);
+$usersStmt->execute();
 
-$stmt = $db->prepare("ALTER TABLE posts ADD updated_at TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP");
-$stmt->execute();
+$postsStmt = $db->prepare($postsTable);
+$postsStmt->execute();
 
-echo "Table created successfully\n";
+$db->query($postsForeignKey);
+
+echo "Tables: users, posts created successfully\n";
 ?>

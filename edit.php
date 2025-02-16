@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Edit post</title>
+    <?php include 'front.css'; ?>
 </head>
 <body>
     <h1>Edit post</h1>

@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Add new post</title>
+    <?php include 'front.css'; ?>
 </head>
 <body>
     <h1>Add new post</h1>

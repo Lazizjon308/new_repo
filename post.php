@@ -16,6 +16,7 @@ if (!$post) die("Post not found!");
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($post['title']) ?></title>
+    <?php include 'front.css'; ?>
 </head>
 <body>
     <h1><?= htmlspecialchars($post['title']) ?></h1>
