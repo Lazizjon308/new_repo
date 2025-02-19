@@ -1,3 +1,13 @@
+<?php
+require_once 'db.php';
+
+try {
+    $stmt = $db->query("SELECT * FROM posts ORDER BY created_at DESC");
+    $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Error fetching posts: " . htmlspecialchars($e->getMessage()));
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

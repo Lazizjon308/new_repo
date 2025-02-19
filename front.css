@@ -18,18 +18,18 @@ h1 {
     background-color: none;
     padding: 20px;
     margin-bottom: 20px;
-    color: rgba(218, 213, 213, 0.8);
+    color: rgba(49, 32, 32, 0.8);
 }
 
 h2 {
     font-size: 1.5em;
-    color: #d4d4d4;
+    color: #141010;
     margin-bottom: 10px;
 }
 
 a {
     text-decoration: none;
-    color: #eff0f1a6;
+    color: #151618a6;
 }
 
 a:hover {
@@ -44,7 +44,7 @@ a:hover {
 .add-post-link {
     display: inline-block;
     background-color: #28a745;
-    color: rgb(221, 212, 212);
+    color: rgb(34, 32, 32);
     padding: 10px 15px;
     margin: 20px 0;
     border-radius: 5px;
@@ -92,7 +92,7 @@ a:hover {
 /* Edit and delete buttons */
 button {
     background-color: #007bff;
-    color: white;
+    color: rgb(62, 77, 146);
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -100,7 +100,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #34373a;
 }
 
 /* Form styles */
