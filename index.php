@@ -22,6 +22,11 @@ try {
 
     <div class="container">
         <a href="create.php" class="add-post-link">Add new post</a>
+        <search>
+            <form>
+                <input placeholder = "search">
+            </form>
+        </search>
 
         <?php foreach ($posts as $post): ?>
             <div class="post">
